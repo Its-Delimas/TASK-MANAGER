@@ -1,9 +1,15 @@
  import express from "express"
  import dotenv from "dotenv"
+ import connectDB from "./config/db.js";
+import router from "./routes/taskroutes.js";
+
+ const app = express();
 
  dotenv.config()
+ connectDB();
 
-const app = express();
+ app.use('api/Task',router)
+
 
 const PORT=process.env.PORT || 3000;
 
