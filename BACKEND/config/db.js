@@ -1,10 +1,10 @@
-import moongoose from 'mongoose'
+import mongoose from 'mongoose'
 
 const connectDB = async()=>{
     try{
-        await moongoose.connect(process.env.MONGO_URI)
+        await mongoose.connect(process.env.MONGO_URI)
         console.log("database connected sucessfully")
-    } catch(err){
+    } catch(error){
         console.log("ERROR : ",error)
         process.exit(1);
     }

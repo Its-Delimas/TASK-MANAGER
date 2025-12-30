@@ -12,6 +12,17 @@ export const getAllTask = async (req,res)=>{
 }
 //add new note
 export const addNewTask = async (req,res)=>{
+    try{
+        const task = await task.create(
+            {title:req.body.title},
+            {content:req.body.content},
+            {completed:false},
+        )
+        res.status(200).json(task)
+    }catch(error){
+        res.status(500).json({mssg:"Error encountered, check console"})
+        console.log(error)
+    }
     
 }
 //delete Note
